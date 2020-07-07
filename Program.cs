@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.IO;
+using The_Ark.entities.Natural;
 
 namespace The_Ark
 {
@@ -6,13 +9,24 @@ namespace The_Ark
     {
         static void Main(string[] args)
         {
-            string vesselName;
-            SpaceShip vessel;
+            var p = new Planet("Testowa Planeta", new List<Enum>()
+            {
+                CivilizationType.States,
+                FloraType.Edible,
+                AtmosphereType.Thick,
+                GravityType.EarthLike,
+                SizeType.SuperTerrestrial,
+                TemperatureType.Hot
+            });
+            
+            //Zwraca wartosc enuma o danym typie
+            var x = p.GetParameterValue(typeof(CivilizationType));
+            
 
-            Console.WriteLine("Howdy, what's your ship called?");
-            vesselName = Console.ReadLine();
-            vessel = new SpaceShip(vesselName);
-            Console.WriteLine(vessel);
+            /*Console.WriteLine("Howdy, what's your ship called?");
+            var vesselName = Console.ReadLine();
+            var vessel = new SpaceShip(vesselName);
+            Console.WriteLine(vessel);*/
         }
     }
 }

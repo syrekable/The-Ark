@@ -2,10 +2,10 @@ namespace The_Ark
 {
     public class Asteroid : Harmful
     {
-        public SizeType size;
+        private SizeType _size;
         public Asteroid(int size)
         {
-            this.size = (SizeType)size;
+            this._size = (SizeType)size;
         }
     }
 }

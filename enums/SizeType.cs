@@ -1,4 +1,4 @@
-namespace The_Ark
+﻿namespace The_Ark
 {
     public enum SizeType
     {
