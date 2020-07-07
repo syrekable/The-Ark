@@ -1,6 +1,6 @@
 ﻿namespace The_Ark
 {
-    public enum WaterType
+    public enum WaterResourceType
     {
         None = 0,
         Trace = 1,

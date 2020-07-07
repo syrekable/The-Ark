@@ -7,6 +7,6 @@
         Kingdoms = 2,
         States = 3,
         PlanetaryUnions = 4,
-        Ruines = 5
+        Ruined = 5
     }
 }
