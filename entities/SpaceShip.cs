@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace The_Ark
+﻿namespace The_Ark
 {
 	public class SpaceShip : Entity
 	{
