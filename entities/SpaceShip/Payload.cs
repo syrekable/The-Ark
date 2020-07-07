@@ -12,7 +12,7 @@
         public Database database { get; private set; }
         public override string ToString()
         {
-            return $"Colonists:\t{colonists}\nDatabase integrity:\n-scientific:\t{database.scientific}\n-cultural:\t{database.cultural}";
+            return $"Colonists:\t{colonists}\nDatabase integrity:\n-scientific:\t{database.scientific}%\n-cultural:\t{database.cultural}%";
         }
     }
 }
