@@ -2,11 +2,10 @@
 
 namespace The_Ark
 {
-	public class SpaceShip
+	public class SpaceShip : Entity
 	{
-		private string name { get; set; }
-		private Payload payload;
-		private Systems systems;
+		public Payload payload { get; private set; }
+		public Systems systems { get; private set; }
 		public SpaceShip(string name)
 		{
 			//default game mode
@@ -17,7 +16,7 @@ namespace The_Ark
 
 		public SpaceShip(string name, params int[] payloadAndSystems)
         {
-			//various difficulty levels
+			//constructor for various difficulty levels
 			this.name = name;
 			payload = new Payload(payloadAndSystems[0], payloadAndSystems[1], payloadAndSystems[2]);
 			systems = new Systems(payloadAndSystems[3], payloadAndSystems[4]);
