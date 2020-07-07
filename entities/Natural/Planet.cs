@@ -1,4 +1,4 @@
-using System.Runtime.InteropServices.ComTypes;
+using System.Collections.Generic;
 
 namespace The_Ark
 {
@@ -8,15 +8,40 @@ namespace The_Ark
         public AtmosphereType atmosphere;
         public GravityType gravity;
         public TemperatureType temperature;
-        public WaterType water;
-        public Planet(string name, int size, int atmosphere, int gravity, int temperature, int water)
+        public WaterResourceType water;
+        public FloraType flora;
+        public FaunaType fauna;
+        public CivilizationType civilization;
+        public Planet(string name, IDictionary<string,int> parameters)
         {
             this.name = name;
-            this.size = (SizeType)size;
-            this.atmosphere = (AtmosphereType)atmosphere;
-            this.gravity = (GravityType)gravity;
-            this.temperature = (TemperatureType)temperature;
-            this.water = (WaterType)water;
+            size = (SizeType)parameters["SizeType"];
+            atmosphere = (AtmosphereType)parameters["AtmosphereType"];
+            //well, that's ugly af
+            if (parameters.ContainsKey("GravityType"))
+            {
+                gravity = (GravityType)parameters["GravityType"];
+            }
+            if (parameters.ContainsKey("TemperatureType"))
+            {
+                temperature = (TemperatureType)parameters["TemperatureType"];
+            }
+            if (parameters.ContainsKey("WaterResourceType"))
+            {
+                water = (WaterResourceType)parameters["WaterResourceType"];
+            }
+            if (parameters.ContainsKey("FloraType"))
+            {
+                flora = (FloraType)parameters["FloraType"];
+            }
+            if (parameters.ContainsKey("FaunaType"))
+            {
+                fauna = (FaunaType)parameters["FaunaType"];
+            }
+            if (parameters.ContainsKey("CivilizationType"))
+            {
+                civilization = (CivilizationType)parameters["CivilizationType"];
+            }
         }
     }
 }

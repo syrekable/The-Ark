@@ -6,6 +6,6 @@
         MarsLike = 1,
         EarthLike = 2,
         NeptuneLike = 3,
-        JupiterLike = 4 //strong af
+        JupiterLike = 4
     }
 }
