@@ -10,25 +10,20 @@ namespace The_Ark
     {
         static void Main(string[] args)
         {
-            var p = new Planet("Testowa Planeta", new List<Enum>()
+            var p = new Planet("XAEA-12", new List<Enum>()
             {
-                CivilizationType.States,
-                FloraType.Edible,
-                FaunaType.Reptiles,
+                //order matters
+                TemperatureType.Hot,
+                SizeType.SuperTerrestrial,
                 AtmosphereType.Thick,
                 GravityType.EarthLike,
-                SizeType.SuperTerrestrial,
-                TemperatureType.Hot
+                WaterResourceType.Trace,
+                FloraType.Edible,
+                FaunaType.Reptiles,
+                CivilizationType.States
             });
-            
-            //Zwraca wartosc enuma o danym typie
-            //var x = p.GetParameterValue(typeof(FloraType));
+           
             Console.WriteLine(p);
-
-            Console.WriteLine("Howdy, what's your ship called?");
-            var vesselName = Console.ReadLine();
-            var vessel = new SpaceShip(vesselName);
-            Console.WriteLine(vessel);
         }
     }
 }
