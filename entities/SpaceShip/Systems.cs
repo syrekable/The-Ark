@@ -7,8 +7,8 @@
         
         private void ApplySystems(int hull, int lifeSupport)
         {
-            this._hull = hull;
-            this._lifeSupport = lifeSupport;
+            _hull = hull;
+            _lifeSupport = lifeSupport;
         }
 
         public string SystemsToString() => $"Hull integrity:\t{_hull}%\nLife support:\t{_lifeSupport}%";

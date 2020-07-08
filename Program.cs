@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using The_Ark.entities.Natural;
+using The_Ark.entities.SpaceShip;
 
 namespace The_Ark
 {
@@ -13,6 +14,7 @@ namespace The_Ark
             {
                 CivilizationType.States,
                 FloraType.Edible,
+                FaunaType.Reptiles,
                 AtmosphereType.Thick,
                 GravityType.EarthLike,
                 SizeType.SuperTerrestrial,
@@ -20,13 +22,13 @@ namespace The_Ark
             });
             
             //Zwraca wartosc enuma o danym typie
-            var x = p.GetParameterValue(typeof(CivilizationType));
-            
+            //var x = p.GetParameterValue(typeof(FloraType));
+            Console.WriteLine(p);
 
-            /*Console.WriteLine("Howdy, what's your ship called?");
+            Console.WriteLine("Howdy, what's your ship called?");
             var vesselName = Console.ReadLine();
             var vessel = new SpaceShip(vesselName);
-            Console.WriteLine(vessel);*/
+            Console.WriteLine(vessel);
         }
     }
 }

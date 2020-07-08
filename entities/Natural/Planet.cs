@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 
 namespace The_Ark.entities.Natural
 {
@@ -23,6 +24,16 @@ namespace The_Ark.entities.Natural
             return Parameters
                 .First(t => t.GetType() == value);
         }
-        
+
+        public override string ToString()
+        {
+            var sb = new StringBuilder($"{name}'s stats:\n");
+            foreach(var p in Parameters)
+            {
+                //looks ugly, but werks
+                sb.AppendFormat("-{0,-17}\t{1}\n", p.GetType().ToString().Replace("The_Ark.",""), p);
+            }
+            return sb.ToString();
+        }
     }
 }

@@ -2,7 +2,6 @@
 {
     public partial class SpaceShip
     {
-        
         private int Colonists { get; set; }
         private Database Database { get; set; }
         private void ApplyPayload(int colonists, int scientificDatabase, int culturalDatabase)

@@ -5,7 +5,7 @@ namespace The_Ark
         private SizeType _size;
         public Asteroid(int size)
         {
-            this._size = (SizeType)size;
+            _size = (SizeType)size;
         }
     }
 }
