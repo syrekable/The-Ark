@@ -1,4 +1,6 @@
-namespace The_Ark
+using The_Ark.enums;
+
+namespace The_Ark.entities.Natural
 {
     public class Asteroid : Harmful
     {

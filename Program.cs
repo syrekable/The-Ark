@@ -9,7 +9,7 @@ namespace The_Ark
 {
     class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
             var p = new Planet("XAEA-12", new List<Enum>()
             {

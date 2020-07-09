@@ -8,7 +8,7 @@ namespace The_Ark.RNG.EntityGenerator
     public class RandomEntityGenerator
     {
         public List<Enum> EntityParameters { get; private set; }
-        private IDictionary<Type, HashSet<Enum>> SetsOfValuesOfEnums; //>this name
+        private IDictionary<Type, List<Enum>> SetsOfValuesOfEnums; //>this name
         public RandomEntityGenerator()
         {
             var SetsOfValuesOfEnums = GetSetsOfValuesOfEnums();
@@ -18,11 +18,8 @@ namespace The_Ark.RNG.EntityGenerator
         {
             //populate the dictionary with key being the type of enum,
             //and values being elements of set of enum's values
-            //why use a HashSet? 
-            //https://docs.microsoft.com/pl-pl/dotnet/api/system.collections.generic.hashset-1.exceptwith
-            //deleting elements at ease
             var Dict = new Dictionary<Type, List<Enum>>();//kurwa listê enumów chcê
-            Dict.Add(typeof(TemperatureType), Enum.GetValues(typeof(TemperatureType)).Cast<TemperatureType>());//co ty pierdolisz, przecie¿ List<T> dziedziczy z IEnumerable
+            Dict.Add(typeof(TemperatureType), Enum.GetValues(typeof(TemperatureType)).Cast<TemperatureType>().ToList());//co ty pierdolisz, przecie¿ List<T> dziedziczy z IEnumerable
             throw new NotImplementedException();
         }
     }
