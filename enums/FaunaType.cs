@@ -1,4 +1,4 @@
-﻿namespace The_Ark
+﻿namespace The_Ark.enums
 {
     public enum FaunaType
     {
