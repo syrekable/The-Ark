@@ -1,21 +1,11 @@
 using System;
 using System.Collections.Generic;
-using System.Dynamic;
-using System.Linq;
-using System.Text.Json.Serialization;
 using The_Ark.enums;
-using Newtonsoft.Json;
-using System.Drawing;
-using System.IO.Compression;
 
 namespace The_Ark.RNG.EntityGenerator
 {
     public partial class RandomEntityGenerator
     {
-        public RandomEntityGenerator()
-        {
-        }
-
         private readonly static Dictionary<Enum, ICollection<Enum>> _affectedProperties = new Dictionary<Enum, ICollection<Enum>>()
         {
             //affected by temperature
@@ -334,15 +324,5 @@ namespace The_Ark.RNG.EntityGenerator
                 }
             },
         };
-
-        string Serialize(IDictionary<Enum, ICollection<Enum>> dict) 
-        {
-            return JsonConvert.SerializeObject(dict); 
-        }
-
-        IDictionary<Enum, ICollection<Enum>> Deserialize(string json)
-        {
-            return JsonConvert.DeserializeObject<IDictionary<Enum, ICollection<Enum>>>(json);
-        }
     }
 }

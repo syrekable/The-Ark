@@ -12,23 +12,11 @@ namespace The_Ark
     {
         static void Main()
         {
-            var p = new Planet("XAEA-12", new List<Enum>()
+            for(var i=0; i<3; i++)
             {
-                //order matters
-                TemperatureType.Hot,
-                SizeType.SuperTerrestrial,
-                AtmosphereType.Thick,
-                GravityType.EarthLike,
-                WaterResourceType.Trace,
-                FloraType.Edible,
-                FaunaType.Reptiles,
-                CivilizationType.States
-            });
-
-            Console.WriteLine(p);
-            var r = new RandomEntityGenerator();
-            //RandomEntityGenerator r = new RandomEntityGenerator();
-            //Console.WriteLine(RandomEntityGenerator.SetsOfValuesOfEnums.ToString());
+                Planet p = new Planet($"Planet {i}", RandomEntityGenerator.Generate());
+                Console.WriteLine(p);
+            }
         }
     }
 }
