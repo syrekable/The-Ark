@@ -18,9 +18,9 @@ namespace The_Ark.RNG.EntityGenerator
             var water = DrawSingleProperty(typeof(WaterResourceType), temperature);
             //flora, fauna and civilization values, which could occur on planet with given temperature and water resource
             var lifeSupporters = _affectedProperties[temperature].Intersect(_affectedProperties[water]).ToList();
-            var flora = DrawSingleProperty(typeof(FloraType), lifeSupporters);
-            var fauna = DrawSingleProperty(typeof(FaunaType), lifeSupporters);
-            var civ = DrawSingleProperty(typeof(CivilizationType), lifeSupporters);
+            var flora = DrawSingleProperty(typeof(FloraType), lifeSupporters, true);
+            var fauna = DrawSingleProperty(typeof(FaunaType), lifeSupporters, true);
+            var civ = DrawSingleProperty(typeof(CivilizationType), lifeSupporters, true);
             properties.Add(temperature);
             properties.Add(size);
             properties.Add(gravity);
@@ -47,31 +47,13 @@ namespace The_Ark.RNG.EntityGenerator
             return value;
         }
 
-        private static Enum DrawSingleProperty(Type type, List<Enum> intersectionOfDependency)
+        private static Enum DrawSingleProperty(Type type, List<Enum> intersectionOfDependency, bool XD)//don't blame me okay
         {
             var values = Enum.GetValues(type).Cast<Enum>().ToList();
             //the range is given by intersection of intersection of two enums and the values of dependant value
             var range = values.Intersect(intersectionOfDependency).ToArray();
             var value = (Enum)range.GetValue(_random.Next(range.Length));
             return value;
-        }
-
-        private static List<Enum> GetAvailableProperties(Enum affectingValue, Type affectedType)
-        {
-            //returns a list of properties from which the generator may draw
-            var values = _affectedProperties[affectingValue];
-            var available = new List<Enum>();
-            foreach (var v in values) 
-            {
-                //how to check if `v` is of the type `affectedType`?
-                /*
-                if (v is affectedType)
-                {
-
-                }
-                */
-            }
-            throw new NotImplementedException();
         }
     }
 }
