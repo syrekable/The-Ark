@@ -10,7 +10,7 @@ namespace The_Ark
     {
         static void Main()
         {
-            for(var i=0; i<3; i++)
+            for(var i=0; i<20; i++)
             {
                 Planet p = new Planet($"Planet {i}", RandomEntityGenerator.Generate());
                 Console.WriteLine(p);

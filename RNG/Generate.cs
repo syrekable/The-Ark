@@ -37,6 +37,8 @@ namespace The_Ark.RNG.EntityGenerator
         private static Enum DrawSingleProperty(Type type, Enum? dependantOn)
         {
             //returns a random value from the enum's range
+            //TODO: maybe a random list element? XD
+            //src of this crap: https://stackoverflow.com/a/27744237/12938809
 
             var values = Enum.GetValues(type).Cast<Enum>().ToList();//InvalidCastException
             //the intersection of Enum's values with the affected properties gives us a neat range
