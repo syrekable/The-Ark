@@ -1,4 +1,4 @@
-# The Ark
+`# The Ark
 *a text-based RRPG (Random-RPG), in which the future of new, interstellar humanity lays in your human hands and AGI's algorithms.*
 
 ## Story & concept

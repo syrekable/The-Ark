@@ -4,6 +4,7 @@ using System.IO;
 using The_Ark.entities.Natural;
 using The_Ark.entities.SpaceShip;
 using The_Ark.enums;
+using The_Ark.RNG.EntityGenerator;
 
 namespace The_Ark
 {
@@ -23,8 +24,11 @@ namespace The_Ark
                 FaunaType.Reptiles,
                 CivilizationType.States
             });
-           
+
             Console.WriteLine(p);
+            var r = new RandomEntityGenerator();
+            //RandomEntityGenerator r = new RandomEntityGenerator();
+            //Console.WriteLine(RandomEntityGenerator.SetsOfValuesOfEnums.ToString());
         }
     }
 }

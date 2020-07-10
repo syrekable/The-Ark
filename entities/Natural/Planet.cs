@@ -31,7 +31,7 @@ namespace The_Ark.entities.Natural
             foreach(var p in Parameters)
             {
                 //looks ugly, but werks
-                sb.AppendFormat("-{0,-17}\t{1}\n", p.GetType().ToString().Replace("The_Ark.",""), p);
+                sb.AppendFormat("-{0,-17}\t{1}\n", p.GetType().ToString().Replace("The_Ark.enums.",""), p);
             }
             return sb.ToString();
         }

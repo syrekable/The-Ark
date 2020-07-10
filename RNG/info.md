@@ -41,7 +41,7 @@
       - gravity: *{NeptuneLike, JupiterLike}*
     * __Giant__:
       - gravity: *{JupiterLike}*
-  - The __gravity__ affects the atmosphere. If it's too strong or to weak, it may affect other spheres. For now we'll stick to atmosphere.
+  - The __gravity__ affects the atmosphere. If it's too strong or too weak, it may affect other spheres. For now we'll stick to atmosphere.
     * __Weak__:
       - atmosphere: *{None}*
     * __MarsLike__:
