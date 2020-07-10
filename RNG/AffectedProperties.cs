@@ -4,7 +4,7 @@ using The_Ark.enums;
 
 namespace The_Ark.RNG.EntityGenerator
 {
-    public partial class RandomEntityGenerator
+    public static partial class RandomEntityGenerator
     {
         private readonly static Dictionary<Enum, ICollection<Enum>> _affectedProperties = new Dictionary<Enum, ICollection<Enum>>()
         {
