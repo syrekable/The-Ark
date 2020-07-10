@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using The_Ark.enums;
-using System.Linq;
 
 namespace The_Ark.RNG.EntityGenerator
 {
@@ -39,9 +38,9 @@ namespace The_Ark.RNG.EntityGenerator
         {
             //returns a random value from the enum's range
 
-            var values = (IEnumerable<Enum>)Enum.GetValues(type);//InvalidCastException
+            var values = Enum.GetValues(type).Cast<Enum>().ToList();//InvalidCastException
             //the intersection of Enum's values with the affected properties gives us a neat range
-            var range = dependantOn != null ? (Array)_affectedProperties[dependantOn].Intersect(values): (Array)values;
+            var range = dependantOn != null ? _affectedProperties[dependantOn].Intersect(values).ToArray(): values.ToArray();
             //pick a random number r from 0 to range.Length, take the item on index r, cast to enum, return
             var value = (Enum)range.GetValue(_random.Next(range.Length));
             return value;
