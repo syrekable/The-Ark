@@ -16,12 +16,11 @@ namespace The_Ark.RNG.EntityGenerator
             var gravity = DrawSingleProperty(typeof(GravityType), size);
             var atmosphere = DrawSingleProperty(typeof(AtmosphereType), gravity);
             var water = DrawSingleProperty(typeof(WaterResourceType), temperature);
-            //var lifeSupporters = _affectedProperties[temperature].Intersect(_affectedProperties[water]);
-            //TODO: un-hardcore it
-            var flora = FloraType.Edible;
-            var fauna = FaunaType.Mammals;
-            var civ = CivilizationType.PlanetaryUnions;
-            //var flora = DrawSingleProperty(typeof(FloraType), )thinking in progress
+            //flora, fauna and civilization values, which could occur on planet with given temperature and water resource
+            var lifeSupporters = _affectedProperties[temperature].Intersect(_affectedProperties[water]).ToList();
+            var flora = DrawSingleProperty(typeof(FloraType), lifeSupporters);
+            var fauna = DrawSingleProperty(typeof(FaunaType), lifeSupporters);
+            var civ = DrawSingleProperty(typeof(CivilizationType), lifeSupporters);
             properties.Add(temperature);
             properties.Add(size);
             properties.Add(gravity);
@@ -40,7 +39,7 @@ namespace The_Ark.RNG.EntityGenerator
             //TODO: maybe a random list element? XD
             //src of this crap: https://stackoverflow.com/a/27744237/12938809
 
-            var values = Enum.GetValues(type).Cast<Enum>().ToList();//InvalidCastException
+            var values = Enum.GetValues(type).Cast<Enum>().ToList();
             //the intersection of Enum's values with the affected properties gives us a neat range
             var range = dependantOn != null ? _affectedProperties[dependantOn].Intersect(values).ToArray(): values.ToArray();
             //pick a random number r from 0 to range.Length, take the item on index r, cast to enum, return
@@ -48,11 +47,11 @@ namespace The_Ark.RNG.EntityGenerator
             return value;
         }
 
-        private static Enum DrawSingleProperty(Type type, Enum dependantOn, List<Enum> intersectionOfDependency)
+        private static Enum DrawSingleProperty(Type type, List<Enum> intersectionOfDependency)
         {
+            var values = Enum.GetValues(type).Cast<Enum>().ToList();
             //the range is given by intersection of intersection of two enums and the values of dependant value
-            var range = (Array)_affectedProperties[dependantOn].Intersect(intersectionOfDependency);
-            //pick a random number r from 0 to range.Length, take the item on index r, cast to enum, return
+            var range = values.Intersect(intersectionOfDependency).ToArray();
             var value = (Enum)range.GetValue(_random.Next(range.Length));
             return value;
         }
