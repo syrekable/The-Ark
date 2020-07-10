@@ -1,11 +1,13 @@
-namespace The_Ark
+using The_Ark.enums;
+
+namespace The_Ark.entities.Natural
 {
     public class Asteroid : Harmful
     {
-        public SizeType size;
+        private SizeType _size;
         public Asteroid(int size)
         {
-            this.size = (SizeType)size;
+            _size = (SizeType)size;
         }
     }
 }

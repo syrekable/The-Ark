@@ -1,18 +1,20 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.IO;
+using The_Ark.entities.Natural;
+using The_Ark.RNG.EntityGenerator;
 
 namespace The_Ark
 {
     class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
-            string vesselName;
-            SpaceShip vessel;
-
-            Console.WriteLine("Howdy, what's your ship called?");
-            vesselName = Console.ReadLine();
-            vessel = new SpaceShip(vesselName);
-            Console.WriteLine(vessel);
+            for(var i=0; i<20; i++)
+            {
+                Planet p = new Planet($"Planet {i}", RandomEntityGenerator.Generate());
+                Console.WriteLine(p);
+            }
         }
     }
 }

@@ -1,47 +1,39 @@
+using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 
-namespace The_Ark
+namespace The_Ark.entities.Natural
 {
     public class Planet : Desired
     {
-        public SizeType size;
-        public AtmosphereType atmosphere;
-        public GravityType gravity;
-        public TemperatureType temperature;
-        public WaterResourceType water;
-        public FloraType flora;
-        public FaunaType fauna;
-        public CivilizationType civilization;
-        public Planet(string name, IDictionary<string,int> parameters)
+
+        private ICollection<Enum> Parameters { get; set; }
+        
+        public Planet(string name, ICollection<Enum> parameters)
         {
             this.name = name;
-            size = (SizeType)parameters["SizeType"];
-            atmosphere = (AtmosphereType)parameters["AtmosphereType"];
-            //well, that's ugly af
-            if (parameters.ContainsKey("GravityType"))
+            Parameters = parameters;
+        }
+        
+        public object GetParameterValue(Type value)
+        {
+            if (Parameters.Count == 0)
+                return null;
+
+            return Parameters
+                .First(t => t.GetType() == value);
+        }
+
+        public override string ToString()
+        {
+            var sb = new StringBuilder($"{name}'s stats:\n");
+            foreach(var p in Parameters)
             {
-                gravity = (GravityType)parameters["GravityType"];
+                //looks ugly, but werks
+                sb.AppendFormat("-{0,-17}\t{1}\n", p.GetType().ToString().Replace("The_Ark.enums.",""), p);
             }
-            if (parameters.ContainsKey("TemperatureType"))
-            {
-                temperature = (TemperatureType)parameters["TemperatureType"];
-            }
-            if (parameters.ContainsKey("WaterResourceType"))
-            {
-                water = (WaterResourceType)parameters["WaterResourceType"];
-            }
-            if (parameters.ContainsKey("FloraType"))
-            {
-                flora = (FloraType)parameters["FloraType"];
-            }
-            if (parameters.ContainsKey("FaunaType"))
-            {
-                fauna = (FaunaType)parameters["FaunaType"];
-            }
-            if (parameters.ContainsKey("CivilizationType"))
-            {
-                civilization = (CivilizationType)parameters["CivilizationType"];
-            }
+            return sb.ToString();
         }
     }
 }

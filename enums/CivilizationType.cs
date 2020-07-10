@@ -1,4 +1,4 @@
-﻿namespace The_Ark
+﻿namespace The_Ark.enums
 {
     public enum CivilizationType
     {
@@ -7,6 +7,7 @@
         Kingdoms = 2,
         States = 3,
         PlanetaryUnions = 4,
-        Ruined = 5
+        Ruined = 5,
+        None = 6
     }
 }

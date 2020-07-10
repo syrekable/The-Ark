@@ -1,9 +1,11 @@
-﻿namespace The_Ark
+﻿namespace The_Ark.enums
 {
     public enum FloraType
     {
-        Unedible = 0,
-        Edible = 1,
-        Poisonous = 2
+        None = 0,
+        Autotrophs = 1,//one celled, self-sufficient organisms
+        Unedible = 2,//isn't unedible == poisonous? lol
+        Edible = 3,
+        Poisonous = 4
     }
 }
