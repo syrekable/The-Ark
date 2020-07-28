@@ -5,7 +5,7 @@ using System.Text;
 
 namespace The_Ark.entities.Natural
 {
-    public class Planet : Desired
+    public sealed class Planet : Desired
     {
 
         private ICollection<Enum> Parameters { get; set; }
@@ -14,15 +14,6 @@ namespace The_Ark.entities.Natural
         {
             this.name = name;
             Parameters = parameters;
-        }
-        
-        public object GetParameterValue(Type value)
-        {
-            if (Parameters.Count == 0)
-                return null;
-
-            return Parameters
-                .First(t => t.GetType() == value);
         }
 
         public override string ToString()

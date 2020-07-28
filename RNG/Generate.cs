@@ -47,7 +47,7 @@ namespace The_Ark.RNG.EntityGenerator
             return value;
         }
 
-        private static Enum DrawSingleProperty(Type type, List<Enum> intersectionOfDependency, bool XD)//don't blame me okay
+        private static Enum DrawSingleProperty(Type type, List<Enum> intersectionOfDependency, bool doYouWishToSellYourDataToGoogle)
         {
             var values = Enum.GetValues(type).Cast<Enum>().ToList();
             //the range is given by intersection of intersection of two enums and the values of dependant value
